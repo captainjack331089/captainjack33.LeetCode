@@ -33,10 +33,5 @@ class Solution(object):
         return result
 
 
-
-
-
-
-
 if __name__ == "__main__":
     print(Solution().generate(7))
