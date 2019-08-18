@@ -28,5 +28,21 @@ class Solution(object):
                 return ([d[remain_numbers]+1,i+1])
 
 
+##Method2:
+class Solution2(object):
+    def twoSum(self,numbers,target):
+        start = 0
+        end = len(numbers)-1
+        sum = 0
+        while start != end:
+            sum = numbers[start] + numbers[end]
+            if sum < target:
+                start += 1
+            elif sum > target:
+                end -= 1
+            else:
+                return ([start+1,end+1])
+
 if __name__ == '__main__':
     print(Solution().twoSum([2,7,11,15],9))
+    print(Solution2().twoSum([2, 7, 11, 15], 18))
