@@ -26,7 +26,7 @@ class Solution(object):
 
         for i in nums:
             if i != 1:
-                reserved_max = count
+                reserved_max = max(count, reserved_max)
                 count = 0
             else:
                 count += 1
