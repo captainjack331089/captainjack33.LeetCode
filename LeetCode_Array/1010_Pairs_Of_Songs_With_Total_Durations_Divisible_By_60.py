@@ -31,7 +31,7 @@ Note:
 1 <= time[i] <= 500
 """
 class Solution(object):
-    def numPairsDivisibleBy60(self,time):
+    def numPairsDivisibleBy60_1(self,time):
         result = 0
         record = [0 for _ in range(60)]
         for i in time:
@@ -45,6 +45,18 @@ class Solution(object):
                 result += record[i]*record[60-i]
         return (result // 2)
 
+    def numPairsDivisibleBy60_2(selfs,time):
+        result = 0
+        record = [0 for _ in range(60)]
+        for i in time:
+            record[i % 60] += 1
+        result += record[0]*(record[0]-1)//2
+        result += record[30]*(record[30]-1)//2
+        for i in range(1,30):
+            result += record[i]*record[60-i]
+        return result
+
+
 if __name__ == "__main__":
-    #print(Solution().numPairsDivisibleBy60([30,20,150,100,40]))
-    print(Solution().numPairsDivisibleBy60([20,20,20,40,40]))
+    print(Solution().numPairsDivisibleBy60_2([30,20,150,100,40]))
+    print(Solution().numPairsDivisibleBy60_1([20,20,20,40,40]))
